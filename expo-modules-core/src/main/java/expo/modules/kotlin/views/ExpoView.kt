@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Canvas
 import android.widget.LinearLayout
 import androidx.annotation.UiThread
+import com.facebook.react.uimanager.BackgroundStyleApplicator
+import com.facebook.react.uimanager.StateWrapper
 import expo.modules.kotlin.AppContext
 
 /**
@@ -14,10 +16,9 @@ abstract class ExpoView(
   val appContext: AppContext
 ) : LinearLayout(context) {
 
-  // TODO: uncomment when we have a proper state wrapper
-//  var stateWrapper: StateWrapper? = null
-//
-//  val shadowNodeProxy: ShadowNodeProxy = ShadowNodeProxy(this)
+  var stateWrapper: StateWrapper? = null
+
+  val shadowNodeProxy: ShadowNodeProxy = ShadowNodeProxy(this)
 
   /**
    * If set to `true`, the view utilizes the Android layout system rather than React Native's.
@@ -60,8 +61,7 @@ abstract class ExpoView(
     if (!clipToPadding) {
       return
     }
-    // TODO: uncomment when we have a proper background style applicator
-//    BackgroundStyleApplicator.clipToPaddingBox(this, canvas)
+    BackgroundStyleApplicator.clipToPaddingBox(this, canvas)
   }
 
   override fun dispatchDraw(canvas: Canvas) {

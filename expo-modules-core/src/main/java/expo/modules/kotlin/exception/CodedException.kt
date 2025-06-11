@@ -1,5 +1,6 @@
 package expo.modules.kotlin.exception
 
+import com.facebook.react.bridge.ReadableType
 import expo.modules.core.interfaces.DoNotStrip
 import java.util.*
 import kotlin.reflect.KClass
@@ -198,15 +199,15 @@ internal class IncorrectRefTypeException(
   message = "Cannot convert received '$receivedClass' to the '$desiredType', because of the inner ref type mismatch"
 )
 
-//internal class FieldCastException(
-//  fieldName: String,
-//  fieldType: KType,
-//  providedType: ReadableType,
-//  cause: CodedException
-//) : DecoratedException(
-//  message = "Cannot cast '${providedType.name}' for field '$fieldName' ('$fieldType').",
-//  cause
-//)
+internal class FieldCastException(
+  fieldName: String,
+  fieldType: KType,
+  providedType: ReadableType,
+  cause: CodedException
+) : DecoratedException(
+  message = "Cannot cast '${providedType.name}' for field '$fieldName' ('$fieldType').",
+  cause
+)
 
 internal class RecordCastException(
   recordType: KType,
@@ -216,6 +217,29 @@ internal class RecordCastException(
   cause
 )
 
+internal class CollectionElementCastException private constructor(
+  collectionType: KType,
+  elementType: KType,
+  providedType: String,
+  cause: CodedException
+) : DecoratedException(
+  message = "Cannot cast '$providedType' to '$elementType' required by the collection of type: '$collectionType'.",
+  cause
+) {
+  constructor(
+    collectionType: KType,
+    elementType: KType,
+    providedType: ReadableType,
+    cause: CodedException
+  ) : this(collectionType, elementType, providedType.name, cause)
+
+  constructor(
+    collectionType: KType,
+    elementType: KType,
+    providedType: KClass<*>,
+    cause: CodedException
+  ) : this(collectionType, elementType, providedType.toString(), cause)
+}
 
 @DoNotStrip
 class JavaScriptEvaluateException(

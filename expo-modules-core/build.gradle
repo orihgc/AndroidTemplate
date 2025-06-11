@@ -7,7 +7,7 @@ android {
     namespace 'expo.modules'
     compileSdk 34
     defaultConfig {
-        minSdk 21
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -29,11 +29,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'src/rn77'
+                srcDirs += 'src/compose'
+            }
+        }
+    }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.20"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.0"
     implementation 'androidx.annotation:annotation:1.7.1'
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
@@ -41,7 +50,7 @@ dependencies {
     implementation "androidx.core:core-ktx:1.13.1"
     implementation("androidx.tracing:tracing-ktx:1.2.0")
 
-    implementation "com.facebook.react:react-android:0.72.6"  // 使用你项目兼容的版本
+    implementation "com.facebook.react:react-android:0.79.3"  // 使用你项目兼容的版本
 
     implementation 'androidx.compose.foundation:foundation-android:1.7.6'
 }
