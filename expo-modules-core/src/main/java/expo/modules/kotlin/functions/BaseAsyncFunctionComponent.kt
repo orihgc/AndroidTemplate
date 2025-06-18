@@ -18,7 +18,7 @@ abstract class BaseAsyncFunctionComponent(
     name: String,
     desiredArgsTypes: Array<AnyType>
 ) : AnyFunction(name, desiredArgsTypes) {
-    protected var queue: FunctionQueue = Queues.DEFAULT
+    var queue: FunctionQueue = Queues.DEFAULT
 
     fun runOnQueue(queue: Queues) = apply {
         this.queue = queue

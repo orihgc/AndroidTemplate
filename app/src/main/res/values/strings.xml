@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ReactNativeLearn</string>
+    <string name="expo_camera">ExpoCamera</string>
 </resources>

@@ -10,7 +10,7 @@ import expo.modules.interfaces.permissions.Permissions
 import expo.modules.kotlin.exception.Exceptions
 import java.io.File
 
-class AppContext {
+object AppContext {
 
     val hostingRuntimeContext = RuntimeContext(this)
 
@@ -25,7 +25,7 @@ class AppContext {
         get() = appDirectories?.cacheDirectory
             ?: throw ModuleNotFoundException("expo.modules.interfaces.filesystem.AppDirectories")
 
-    val permissions: Permissions?=null
+    var permissions: Permissions? = null
 
     val activityProvider: ActivityProvider? = null
 

@@ -6,5 +6,5 @@ import expo.modules.kotlin.types.AnyType
 abstract class AsyncFunctionComponent(name: String, desiredArgsTypes: Array<AnyType>) :
     BaseAsyncFunctionComponent(name, desiredArgsTypes) {
 
-    internal abstract fun callUserImplementation(args: Array<Any?>, promise: Promise)
+    abstract fun callUserImplementation(args: Array<Any?>, promise: Promise)
 }

@@ -1,6 +1,6 @@
 package expo.modules.kotlin
 
 class RuntimeContext(
-    appContext: AppContext,
+    val appContext: AppContext,
 ) {
 }

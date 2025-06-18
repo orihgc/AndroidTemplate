@@ -44,7 +44,7 @@ inline fun <reified ReturnType> createAsyncFunctionComponent(
 }
 
 
-open class UntypedAsyncFunctionComponent<ReturnType>(
+open class UntypedAsyncFunctionComponent<ReturnType> constructor(
     name: String,
     desiredArgsTypes: Array<AnyType>,
     protected val body: (args: Array<out Any?>) -> ReturnType

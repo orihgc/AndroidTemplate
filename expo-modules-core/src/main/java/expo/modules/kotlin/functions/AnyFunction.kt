@@ -4,8 +4,8 @@ import expo.modules.kotlin.types.AnyType
 import kotlin.reflect.KType
 
 abstract class AnyFunction(
-    protected val name: String,
-    protected val desiredArgsTypes: Array<AnyType>
+    val name: String,
+    private val desiredArgsTypes: Array<AnyType>
 ) {
 
     var ownerType: KType? = null

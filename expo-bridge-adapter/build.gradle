@@ -41,4 +41,5 @@ dependencies {
     implementation project(':expo-modules-core')
     implementation "com.bytedance.ai:applet-bridge:0.0.1-SNAPSHOT"
     implementation "com.bytedance.ai:applet-base:0.0.1-SNAPSHOT"
+    implementation "com.google.code.gson:gson:2.10.1"
 }

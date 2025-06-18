@@ -3,7 +3,7 @@ package expo.modules.kotlin.functions
 import expo.modules.kotlin.Promise
 import expo.modules.kotlin.types.AnyType
 
-class AsyncFunctionWithPromiseComponent(
+class AsyncFunctionWithPromiseComponent constructor(
     name: String,
     desiredArgsTypes: Array<AnyType>,
     private val body: (args: Array<out Any?>, promise: Promise) -> Unit
