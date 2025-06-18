@@ -36,13 +36,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.0"
     implementation 'androidx.annotation:annotation:1.7.1'
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
     implementation "androidx.core:core-ktx:1.13.1"
-    implementation("androidx.tracing:tracing-ktx:1.2.0")
 
-    implementation 'androidx.compose.foundation:foundation-android:1.7.6'
-
+    implementation project(':expo-modules-core')
     implementation "com.bytedance.ai:applet-bridge:0.0.1-SNAPSHOT"
     implementation "com.bytedance.ai:applet-base:0.0.1-SNAPSHOT"
 }

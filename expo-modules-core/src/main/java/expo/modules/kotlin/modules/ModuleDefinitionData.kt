@@ -1,4 +1,12 @@
 package expo.modules.kotlin.modules
 
-class ModuleDefinitionData {
+import expo.modules.kotlin.objects.ObjectDefinitionData
+
+class ModuleDefinitionData(
+    val name: String,
+    val objectDefinition: ObjectDefinitionData,
+) {
+    val syncFunctions = objectDefinition.syncFunctions
+    val asyncFunctions = objectDefinition.asyncFunctions
+    val functions = objectDefinition.functions
 }

@@ -17,7 +17,9 @@ class ModuleDefinitionBuilder(val module: Module? = null) : ObjectDefinitionBuil
 
 
     fun buildModule(): ModuleDefinitionData {
-        return ModuleDefinitionData()
+        val moduleName = name ?: module?.javaClass?.simpleName
+        ?: throw IllegalArgumentException("Module name is required")
+        return ModuleDefinitionData(moduleName, buildObject())
     }
 
     inline fun <reified T : View> View(viewClass: KClass<T>, body: ViewDefinitionBuilder<T>.() -> Unit) {}

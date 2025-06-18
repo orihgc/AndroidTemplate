@@ -432,4 +432,12 @@ open class ObjectDefinitionBuilder constructor(private val customConverter: Type
         name: String
     ) = AsyncFunctionBuilder(name).also { asyncFunctionBuilders[name] = it }
     //endregion
+
+    fun buildObject(): ObjectDefinitionData {
+
+        return ObjectDefinitionData(
+            syncFunctions + syncFunctionBuilder.mapValues { (_, value) -> value.build() },
+            (asyncFunctions + asyncFunctionBuilders.mapValues { (_, value) -> value.build() }),
+        )
+    }
 }
