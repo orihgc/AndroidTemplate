@@ -11,7 +11,17 @@ import kotlin.reflect.KType
 import kotlin.reflect.KTypeProjection
 import kotlin.reflect.typeOf
 
-class AnyType(val kType: KType, val converterProvider: TypeConverterProvider? = null) {
+class AnyType constructor(
+    private val kType: KType,
+    private val converterProvider: TypeConverterProvider? = null
+) {
+
+    private val converter: TypeConverter<*>? by lazy {
+        converterProvider?.obtainTypeConverter(kType)
+    }
+
+    fun convert(value: Any?): Any? =
+        converter?.convert(value)
 }
 
 object AnyTypeProvider {

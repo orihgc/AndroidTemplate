@@ -1,18 +1,16 @@
 package expo.modules.kotlin.objects
 
-class ConstantComponentBuilder {
+class ConstantComponentBuilder(val name: String) {
+    var getter: (() -> Any?)? = null
 
-    internal var properties = mutableMapOf<String, PropertyComponentBuilder>()
-
-
-    open fun Property(name: String): PropertyComponentBuilder {
-        return PropertyComponentBuilder(name).also {
-            properties[name] = it
-        }
+    /**
+     * Modifier that sets constant getter that has no arguments (the caller is not used).
+     */
+    inline fun <reified R> get(crossinline body: () -> R) = apply {
+        getter = { body() }
     }
-    inline fun <reified T> Property(name: String, crossinline body: () -> T): PropertyComponentBuilder {
-        return PropertyComponentBuilder(name).also {
-            properties[name] = it
-        }
+
+    fun build(): ConstantComponent {
+        return ConstantComponent(name, requireNotNull(getter) { "The constant '$name' doesn't have getter." })
     }
 }

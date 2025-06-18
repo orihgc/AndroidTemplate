@@ -1,8 +1,9 @@
 package expo.modules.kotlin.exception
 
 import java.util.Locale
+import kotlin.reflect.KType
 
-class CodedException(message: String?, cause: Throwable? = null) : Exception(message, cause) {
+open class CodedException(message: String?, cause: Throwable? = null) : Exception(message, cause) {
 
     private var providedCode: String? = null
 
@@ -28,3 +29,9 @@ class CodedException(message: String?, cause: Throwable? = null) : Exception(mes
         }
     }
 }
+
+internal class MissingTypeConverter(
+    forType: KType
+) : CodedException(
+    message = "Cannot find type converter for '$forType'. Make sure the class implements `expo.modules.kotlin.records.Record` (i.e. `class MyObj : Record`)."
+)
