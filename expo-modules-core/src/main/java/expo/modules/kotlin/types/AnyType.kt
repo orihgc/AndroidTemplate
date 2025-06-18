@@ -3,6 +3,7 @@ package expo.modules.kotlin.types
 import android.net.Uri
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
+import expo.modules.kotlin.AppContext
 import java.io.File
 import java.net.URI
 import java.net.URL
@@ -11,17 +12,16 @@ import kotlin.reflect.KType
 import kotlin.reflect.KTypeProjection
 import kotlin.reflect.typeOf
 
-class AnyType constructor(
-    private val kType: KType,
-    private val converterProvider: TypeConverterProvider? = null
+class AnyType(
+    val kType: KType, val converterProvider: TypeConverterProvider? = null
 ) {
 
     private val converter: TypeConverter<*>? by lazy {
         converterProvider?.obtainTypeConverter(kType)
     }
 
-    fun convert(value: Any?): Any? =
-        converter?.convert(value)
+    fun convert(value: Any?,appContext: AppContext? = null): Any? =
+        converter?.convert(value,appContext)
 }
 
 object AnyTypeProvider {
