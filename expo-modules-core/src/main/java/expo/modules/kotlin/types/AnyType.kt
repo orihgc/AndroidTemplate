@@ -1,8 +1,6 @@
 package expo.modules.kotlin.types
 
 import android.net.Uri
-import com.facebook.react.bridge.ReadableArray
-import com.facebook.react.bridge.ReadableMap
 import expo.modules.kotlin.AppContext
 import java.io.File
 import java.net.URI
@@ -41,8 +39,6 @@ object AnyTypeProvider {
             BooleanArray::class,
             FloatArray::class,
             DoubleArray::class,
-            ReadableArray::class,
-            ReadableMap::class,
 
             URL::class,
             Uri::class,
