@@ -436,8 +436,12 @@ open class ObjectDefinitionBuilder constructor(private val customConverter: Type
     fun buildObject(): ObjectDefinitionData {
 
         return ObjectDefinitionData(
-            syncFunctions + syncFunctionBuilder.mapValues { (_, value) -> value.build() },
-            (asyncFunctions + asyncFunctionBuilders.mapValues { (_, value) -> value.build() }),
+            syncFunctions=syncFunctions + syncFunctionBuilder.mapValues { (_, value) -> value.build() },
+            asyncFunctions = (asyncFunctions + asyncFunctionBuilders.mapValues { (_, value) -> value.build() }),
+            properties = properties.mapValues { (_, value) -> value.build() },
+            constants = constants.mapValues { (_, value) -> value.build() },
+            eventsDefinition = eventsDefinition,
+            legacyConstantsProvider = legacyConstantsProvider
         )
     }
 }

@@ -24,5 +24,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp" />
 
+    <Button
+        android:id="@+id/isModernBarcodeScannerAvailable"
+        android:text="isModernBarcodeScannerAvailable"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp" />
+
+    <Button
+        android:id="@+id/toggleRecordingAsyncAvailable"
+        android:text="toggleRecordingAsyncAvailable"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp" />
+
+
+
 
 </LinearLayout>

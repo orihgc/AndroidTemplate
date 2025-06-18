@@ -20,5 +20,13 @@ class TestExpoCameraActivity : AppCompatActivity() {
         binding.requestMicrophonePermission.setOnClickListener {
             SimulationJsRuntime.mockFeCallToNative("ExpoCamera.requestMicrophonePermissionsAsync")
         }
+
+        binding.toggleRecordingAsyncAvailable.setOnClickListener {
+            SimulationJsRuntime.mockFeCallToNative("ExpoCamera.toggleRecordingAsyncAvailable")
+        }
+
+        binding.isModernBarcodeScannerAvailable.setOnClickListener {
+            SimulationJsRuntime.mockFeCallToNative("ExpoCamera.isModernBarcodeScannerAvailable")
+        }
     }
 }

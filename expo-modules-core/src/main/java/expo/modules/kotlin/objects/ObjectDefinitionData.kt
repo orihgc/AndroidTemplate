@@ -1,11 +1,16 @@
 package expo.modules.kotlin.objects
 
+import expo.modules.kotlin.events.EventsDefinition
 import expo.modules.kotlin.functions.BaseAsyncFunctionComponent
 import expo.modules.kotlin.functions.SyncFunctionComponent
 
 class ObjectDefinitionData(
     val syncFunctions: Map<String, SyncFunctionComponent>,
     val asyncFunctions: Map<String, BaseAsyncFunctionComponent>,
+    val properties: Map<String, PropertyComponent>,
+    val constants: Map<String, ConstantComponent>,
+    val legacyConstantsProvider: () -> Map<String, Any?>,
+    val eventsDefinition: EventsDefinition?,
 ) {
 
     val functions
