@@ -19,12 +19,16 @@ open class CodedException(message: String?, cause: Throwable? = null) : Exceptio
     val code
         get() = providedCode ?: inferCode(javaClass)
 
-    constructor(code: String, message: String?, cause: Throwable? = null) : this(
+    constructor(code: String, message: String?, cause: Throwable?) : this(
         message,
         cause
     ) {
         this.providedCode = code
     }
+
+    constructor(cause: Throwable) : this(message = cause.localizedMessage, cause = cause)
+
+    constructor() : this(null, null)
 
     companion object {
         internal fun inferCode(clazz: Class<*>): String {

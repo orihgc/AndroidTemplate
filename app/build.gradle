@@ -44,9 +44,15 @@ dependencies {
     implementation project(':expo-api-adapter')
 
     implementation project(':expo-modules-core')
-    implementation project(':expo-camera')
     implementation "com.bytedance.ai:applet-bridge:0.50.0-rc.1"
     implementation "com.bytedance.ai:applet-base:0.50.0-rc.1"
     implementation "com.google.code.gson:gson:2.10.1"
     implementation "com.github.getActivity:XXPermissions:18.63"
+    implementation project(':expo-camera')
+    implementation project(':expo-file-system')
+    implementation project(':expo-haptics')
+    implementation project(':expo-network')
+    implementation project(':expo-notifications')
+    implementation project(':expo-clipboard')
+    implementation project(':expo-application')
 }

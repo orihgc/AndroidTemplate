@@ -40,8 +40,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
     implementation "androidx.core:core-ktx:1.13.1"
     implementation("androidx.tracing:tracing-ktx:1.2.0")
-
     implementation 'androidx.compose.foundation:foundation-android:1.7.6'
+    api 'com.squareup.okhttp3:okhttp:4.9.2'
 
     implementation "com.bytedance.ai:applet-bridge:0.50.0-rc.1"
     implementation "com.bytedance.ai:applet-base:0.50.0-rc.1"

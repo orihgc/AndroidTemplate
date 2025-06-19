@@ -1,7 +1,9 @@
 package expo.modules.kotlin.modules
 
+import android.app.Activity
 import android.view.View
 import expo.modules.kotlin.classcomponent.ClassComponentBuilder
+import expo.modules.kotlin.events.OnActivityResultPayload
 import expo.modules.kotlin.objects.ObjectDefinitionBuilder
 import expo.modules.kotlin.sharedobjects.SharedObject
 import expo.modules.kotlin.views.ViewDefinitionBuilder
@@ -24,7 +26,11 @@ class ModuleDefinitionBuilder(val module: Module? = null) : ObjectDefinitionBuil
 
     inline fun <reified T : View> View(viewClass: KClass<T>, body: ViewDefinitionBuilder<T>.() -> Unit) {}
 
+    inline fun OnCreate(crossinline body: () -> Unit) {}
     inline fun OnDestroy(crossinline body: () -> Unit) {}
+    inline fun OnActivityEntersForeground(crossinline body: () -> Unit) {}
+    inline fun OnActivityEntersBackground(crossinline body: () -> Unit) {}
+    inline fun OnActivityResult(crossinline body: (Activity, OnActivityResultPayload) -> Unit) {}
 
     inline fun Class(name: String, body: ClassComponentBuilder<Unit>.() -> Unit = {}) {}
 

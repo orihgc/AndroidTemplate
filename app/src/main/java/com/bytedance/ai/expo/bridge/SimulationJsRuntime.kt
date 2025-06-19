@@ -1,5 +1,6 @@
 package com.bytedance.ai.expo.bridge
 
+import android.app.Activity
 import android.util.Log
 import android.widget.Toast
 import androidx.core.util.Consumer
@@ -13,6 +14,7 @@ import com.bytedance.ai.bridge.protocol.model.TargetEntity
 import com.bytedance.ai.bridge.utils.CacheHandle
 import com.google.gson.JsonObject
 import com.bytedance.ai.expo.utils.ActivityManager
+import expo.modules.core.interfaces.ActivityProvider
 import expo.modules.kotlin.AppContext
 
 object SimulationJsRuntime {
@@ -46,6 +48,11 @@ object SimulationJsRuntime {
 
     private fun setupExpo(){
         AppContext.permissions = TestPermissionsImpl()
+        AppContext.activityProvider =
+            ActivityProvider {
+                ActivityManager.currentActivity
+                    ?: throw IllegalStateException("No current activity")
+            }
     }
 
     private fun notifyReady(){

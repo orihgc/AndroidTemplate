@@ -13,15 +13,12 @@ abstract class Module : AppContextProvider {
     internal var _runtimeContext: RuntimeContext? = null
 
 
+
     val runtimeContext: RuntimeContext
         get() = requireNotNull(_runtimeContext) { "The module wasn't created! You can't access the runtime context." }
 
 
     abstract fun definition(): ModuleDefinitionData
-
-    inline fun Module.ModuleDefinition(crossinline block: ModuleDefinitionBuilder.() -> Unit): ModuleDefinitionData {
-        return ModuleDefinitionBuilder(this).also(block).buildModule()
-    }
 
     fun sendEvent(name: String, body: Bundle? = Bundle.EMPTY) {
 
@@ -32,4 +29,8 @@ abstract class Module : AppContextProvider {
     fun <T> sendEvent(enum: T, body: Bundle? = Bundle.EMPTY) where T : Enumerable, T : Enum<T> {}
 
     fun <T> sendEvent(enum: T, body: Map<String, Any?>? = null) where T : Enumerable, T : Enum<T> {}
+}
+
+inline fun Module.ModuleDefinition(crossinline block: ModuleDefinitionBuilder.() -> Unit): ModuleDefinitionData {
+    return ModuleDefinitionBuilder(this).also(block).buildModule()
 }

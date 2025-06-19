@@ -1,8 +1,26 @@
 rootProject.name = "expo-api-adapter"
+
 include ':app'
+include ':expo-modules-core'
+include ':expo-api-adapter'
 
 include ':expo-camera'
 project(':expo-camera').projectDir = new File(rootProject.projectDir, '../node_modules/expo-camera/android')
 
-include ':expo-modules-core'
-include ':expo-api-adapter'
+include ':expo-file-system'
+project(':expo-file-system').projectDir = new File(rootProject.projectDir, '../node_modules/expo-file-system/android')
+
+include ':expo-haptics'
+project(':expo-haptics').projectDir = new File(rootProject.projectDir, '../node_modules/expo-haptics/android')
+
+include ':expo-notifications'
+project(':expo-notifications').projectDir = new File(rootProject.projectDir, '../node_modules/expo-notifications/android')
+
+include ':expo-network'
+project(':expo-network').projectDir = new File(rootProject.projectDir, '../node_modules/expo-network/android')
+
+include ':expo-clipboard'
+project(':expo-clipboard').projectDir = new File(rootProject.projectDir, '../node_modules/expo-clipboard/android')
+
+include ':expo-application'
+project(':expo-application').projectDir = new File(rootProject.projectDir, '../node_modules/expo-application/android')
