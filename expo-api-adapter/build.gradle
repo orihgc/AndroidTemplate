@@ -39,7 +39,7 @@ dependencies {
     implementation "androidx.core:core-ktx:1.13.1"
 
     implementation project(':expo-modules-core')
-    implementation "com.bytedance.ai:applet-bridge:0.0.1-SNAPSHOT"
-    implementation "com.bytedance.ai:applet-base:0.0.1-SNAPSHOT"
+    implementation "com.bytedance.ai:applet-bridge:0.50.0-rc.1"
+    implementation "com.bytedance.ai:applet-base:0.50.0-rc.1"
     implementation "com.google.code.gson:gson:2.10.1"
 }
