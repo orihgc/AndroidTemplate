@@ -14,8 +14,18 @@ abstract class AnyFunction(
 
 
     fun convertArgs(args: Array<Any?>): Array<out Any?> {
-        val finalArgs = Array<Any?>(desiredArgsTypes.size) { null }
-        return finalArgs
+//        val finalArgs = Array<Any?>(desiredArgsTypes.size) { null }
+//        val argIterator = args.iterator()
+//        for (index in args.indices) {
+//            val desiredType = desiredArgsTypes[index]
+//            argIterator.next().apply {
+//                desiredType.convert(this)?.let {
+//                    finalArgs[index] = it
+//                }
+//            }
+//        }
+//        return finalArgs
+        return args
     }
 }
 

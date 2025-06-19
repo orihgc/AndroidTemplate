@@ -21,7 +21,7 @@ object AppContext {
     val imageLoader: ImageLoaderInterface?=null
 
     val reactContext: Context?
-        get() = null
+        get() = activityProvider?.currentActivity
 
     private val appDirectories: AppDirectoriesModuleInterface?=null
 

@@ -29,6 +29,24 @@ class BaseAsyncFunctionComponentWrapper(private val function: BaseAsyncFunctionC
         if (function is AsyncFunctionComponent) {
             function.callUserImplementation(convertJsonToArgs(params), object : Promise {
                 override fun resolve(value: Any?) {
+                    if (value is String) {
+                        resolve.accept(JsonObject().apply {
+                            addProperty("value", value)
+                        })
+                        return
+                    }
+                    if (value is Number) {
+                        resolve.accept(JsonObject().apply {
+                            addProperty("value", value)
+                        })
+                        return
+                    }
+                    if (value is Boolean) {
+                        resolve.accept(JsonObject().apply {
+                            addProperty("value", value)
+                        })
+                        return
+                    }
                     val result =
                         value?.let { runCatching { GsonDefault.toJsonTree(it) }.getOrNull() }
                             ?: JsonObject().also {
