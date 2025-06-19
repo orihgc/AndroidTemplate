@@ -1,4 +1,4 @@
-package com.ori.rn.learn
+package com.bytedance.ai.expo
 
 import org.junit.Test
 

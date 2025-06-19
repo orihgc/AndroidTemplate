@@ -1,8 +1,8 @@
-package com.ori.rn.learn
+package com.bytedance.ai.expo
 
 import android.app.Application
 import com.bytedance.ai.bridge.ModuleRegistry
-import com.ori.rn.learn.utils.ActivityManager
+import com.bytedance.ai.expo.utils.ActivityManager
 import expo.modules.camera.CameraViewModule
 
 class ExpoApplication : Application() {

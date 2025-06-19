@@ -1,10 +1,10 @@
-package com.ori.rn.learn.bridge
+package com.bytedance.ai.expo.bridge
 
 import android.content.pm.PackageManager
 import android.os.Bundle
 import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.XXPermissions
-import com.ori.rn.learn.utils.ActivityManager
+import com.bytedance.ai.expo.utils.ActivityManager
 import expo.modules.core.Promise
 import expo.modules.interfaces.permissions.Permissions
 import expo.modules.interfaces.permissions.PermissionsResponse

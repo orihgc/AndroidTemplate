@@ -1,4 +1,4 @@
-package com.ori.rn.learn.bridge
+package com.bytedance.ai.expo.bridge
 
 import android.util.Log
 import android.widget.Toast
@@ -12,8 +12,7 @@ import com.bytedance.ai.bridge.protocol.model.ReceiveMessageWrapper
 import com.bytedance.ai.bridge.protocol.model.TargetEntity
 import com.bytedance.ai.bridge.utils.CacheHandle
 import com.google.gson.JsonObject
-import com.ori.rn.learn.utils.ActivityManager
-import com.ori.rn.learn.utils.DefaultGson
+import com.bytedance.ai.expo.utils.ActivityManager
 import expo.modules.kotlin.AppContext
 
 object SimulationJsRuntime {

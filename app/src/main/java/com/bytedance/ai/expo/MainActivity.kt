@@ -1,10 +1,10 @@
-package com.ori.rn.learn
+package com.bytedance.ai.expo
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ori.rn.learn.databinding.ActivityMainBinding
-import com.ori.rn.learn.test.TestExpoCameraActivity
+import com.bytedance.ai.expo.databinding.ActivityMainBinding
+import com.bytedance.ai.expo.test.TestExpoCameraActivity
 
 
 class MainActivity : AppCompatActivity() {

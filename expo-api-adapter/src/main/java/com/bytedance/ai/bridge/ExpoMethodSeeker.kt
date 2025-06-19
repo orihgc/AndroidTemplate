@@ -12,19 +12,14 @@ object ExpoMethodSeeker : IMethodSeeker {
         val moduleName = methodName.substring(0, lastDotIndex)
         val realMethodName = methodName.substring(lastDotIndex + 1)
         val moduleDefinitionData = ModuleRegistry.getModuleDefinition(moduleName) ?: return null
-        moduleDefinitionData.functions.forEach {
-            if (it.name == realMethodName) {
-                return when (it) {
-                    is BaseAsyncFunctionComponent -> {
-                        return BaseAsyncFunctionComponentWrapper(it)
-                    }
-
-                    is SyncFunctionComponent -> {
-                        return SyncFunctionComponentWrapper(it)
-                    }
-
-                    else -> null
-                }
+        moduleDefinitionData.syncFunctions.entries.forEach {
+            if (it.key == realMethodName) {
+                return SyncFunctionComponentWrapper(it.value)
+            }
+        }
+        moduleDefinitionData.asyncFunctions.entries.forEach {
+            if (it.key == realMethodName) {
+                return BaseAsyncFunctionComponentWrapper(it.value)
             }
         }
         moduleDefinitionData.constants.entries.firstOrNull { it.key == realMethodName }?.let {

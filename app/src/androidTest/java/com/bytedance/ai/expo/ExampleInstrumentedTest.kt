@@ -1,4 +1,4 @@
-package com.ori.rn.learn
+package com.bytedance.ai.expo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.ori.rn.learn.utils
+package com.bytedance.ai.expo.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity

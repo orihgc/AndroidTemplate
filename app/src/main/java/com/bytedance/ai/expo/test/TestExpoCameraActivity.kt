@@ -1,9 +1,9 @@
-package com.ori.rn.learn.test
+package com.bytedance.ai.expo.test
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ori.rn.learn.bridge.SimulationJsRuntime
-import com.ori.rn.learn.databinding.ActivityCameraTestBinding
+import com.bytedance.ai.expo.bridge.SimulationJsRuntime
+import com.bytedance.ai.expo.databinding.ActivityCameraTestBinding
 
 class TestExpoCameraActivity : AppCompatActivity() {
 
